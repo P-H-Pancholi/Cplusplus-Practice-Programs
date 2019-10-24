@@ -1,27 +1,24 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
+void InsertionSort(int A[],int n){
+	int x,i,j;							//Time Complexity = O(n^2)
+	for(i=1;i<n;i++){
+		j=i-1;
+		x = A[i];
+		while(j>-1 && A[j]>x){
+			A[j+1] = A[j];
+			j=j-1;
+		}
+		A[j+1] = x;
+	}
+}
+
 int main(){
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    int temp=arr[n-1];
-    for(int i=n-2;i>=0;i--){
-            if(arr[i]<temp){
-            arr[i+1]=temp;
-            }
-            else{
-                arr[i+1]=arr[i];
-
-            }
-    }
-    for(int i=0;i<n;i++){
-    cout<<arr[i];
-    }
-
-
-    return 0;
-
+	int n=5;
+	int A[5]={43,23,125,87,32};
+	InsertionSort(A,n);
+	for(int i=0;i<n;i++){
+		cout << A[i] << endl;
+	}
+	return 0;
 }
