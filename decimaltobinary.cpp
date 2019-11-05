@@ -1,19 +1,30 @@
 #include <iostream>
+#include<string>
+#include<sstream>
 using namespace std;
+
 void binary(int n){
-	if (n == 0){
-		cout << n;
+	ostringstream s1;
+	int r = n%2;
+	int q = n/2;
+	string s;
+	
+	if(n==1 || n==0){
+		s1 << n;
+		s = s + s1.str();
+		cout << s;	
+	}else{
+		s1 << r;
+		s = s + s1.str();
+		binary(q);
+		cout << s;	
 	}
-	else{
-		int temp = n % 2;
-		n = n/2;
-		binary(n);
-		cout << temp;
-	}
+	
 }
+
 int main(){
     int a;
     cin >> a;
     binary(a);
-	return 0;
+    return 0;
 }
